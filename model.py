@@ -6,6 +6,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
 from sklearn import metrics
 import matplotlib.pyplot as plt
+import joblib
 
 # Load Sentiment140 dataset
 columns = ['target', 'id', 'date', 'flag', 'user', 'text']
@@ -32,3 +33,5 @@ y_pred = model.predict(X_test)
 
 # Model evaluation
 print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+
+joblib.dump(model, 'your_model.pkl')
